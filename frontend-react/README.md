@@ -1,103 +1,237 @@
+# 🚀 BeyondChats Assignment – Full-Stack Application
 
-# 🟩 Phase 3 – Frontend (React UI)
-
-## 📌 Overview
-
-Phase 3 represents the **user interface layer** of the BeyondChats assignment.
-
-This phase:
-- Consumes APIs exposed by Phase 1
-- Displays articles in a clean and responsive UI
-- Renders article cards dynamically using React
-
-Phase 1 **must be running** before starting this phase.
+🔗 **GitHub Repository**  
+https://github.com/waquaralipatel/Assignment-BeyondChats
 
 ---
 
-## 🧠 Phase 3 Architecture
+## 📌 Project Overview
 
-User Browser
+This project is a **phase-wise full-stack application** developed as part of the **BeyondChats technical assessment**.
+
+The system performs the following tasks:
+
+- Scrapes BeyondChats blog articles
+- Stores articles in MongoDB
+- Enhances articles using an AI pipeline (real or mocked)
+- Displays original and updated articles on a React frontend
+
+The application is designed with a **modular, scalable, and clean architecture**, divided into three connected phases.
+
+---
+
+## 🧠 Complete Application Architecture (Data Flow)
+
+BeyondChats Blog Pages
 │
 ▼
-React Frontend (Vite)
+Phase 1 – Backend
+(Blog Scraper + REST APIs)
 │
 ▼
-Axios API Client
+MongoDB Database
+(beyondchats)
 │
 ▼
-Backend REST APIs
-(/api/articles)
+Phase 2 – AI Pipeline
+(Content Enhancement)
+│
+▼
+Phase 3 – Frontend UI
+(React Application)
 
+yaml
+Copy code
 
----
-
-## 🎯 Responsibilities
-
-- Fetch articles from backend APIs
-- Render article cards dynamically
-- Handle loading and error states safely
-- Ensure stable UI rendering
-
----
-
-## 🛠 Tech Stack
-
-- React (Vite)
-- Axios
-- Tailwind CSS
-- JavaScript (ES6+)
+This diagram summarizes the **end-to-end data flow** from scraping to UI rendering.
 
 ---
 
-## ⚙️ Environment Setup
+## 🧩 Phase Breakdown
 
-### Create the environment file
+### 🟥 Phase 1 – Backend (API + Scraper)
+- Scrapes BeyondChats blog articles using Axios & Cheerio
+- Stores data in MongoDB
+- Exposes REST APIs (`/api/articles`) for other phases
+
+**Tech Stack:** Node.js, Express.js, MongoDB, Mongoose, Axios, Cheerio
+
+---
+
+### 🟧 Phase 2 – AI Pipeline
+- Fetches articles from backend APIs
+- Enhances content using AI (or mocked AI logic)
+- Updates enhanced articles back into MongoDB
+
+**Tech Stack:** Node.js, Axios, OpenAI API (or mock logic)
+
+---
+
+### 🟩 Phase 3 – Frontend (React UI)
+- Fetches articles from backend
+- Displays articles as responsive cards
+- Handles loading and error states safely
+
+**Tech Stack:** React (Vite), Axios, Tailwind CSS
+
+---
+
+## ⚙️ Local Setup Instructions
+
+### 🔹 Prerequisites
+- Node.js (v18 or later)
+- MongoDB (local instance or MongoDB Compass)
+- Git
+
+---
+
+### 🔹 Step 1: Clone the Repository
 ```bash
+git clone https://github.com/waquaralipatel/Assignment-BeyondChats.git
+cd Assignment-BeyondChats
+🔹 Step 2: Phase 1 – Backend Setup
+bash
+Copy code
+cd backend-laravel
 cp .env.example .env
-
-Update .env with the following value
-VITE_API_URL=http://localhost:5000
-
-
-Environment variables are loaded at build time. Restart the dev server after changes.
-
-▶️ Execution Steps
-1️⃣ Install Dependencies
-cd frontend-react
 npm install
+cd src
+node app.js
+Run scraper (one-time):
 
-2️⃣ Start Development Server
+bash
+Copy code
+node scraper/scrapeOldBlogs.js
+🔹 Step 3: Phase 2 – AI Pipeline Setup
+bash
+Copy code
+cd ai-node-script
+cp .env.example .env
+npm install
+node index.js
+Note: If OpenAI quota is unavailable, AI rewriting is safely mocked.
+
+🔹 Step 4: Phase 3 – Frontend Setup
+bash
+Copy code
+cd frontend-react
+cp .env.example .env
+npm install
 npm run dev
+Open in browser:
 
-🌐 Access Application
-
-Open the browser and navigate to:
-
+arduino
+Copy code
 http://localhost:5173
+🔁 Correct Execution Order
+arduino
+Copy code
+1️⃣ Backend Server   → node app.js
+2️⃣ Blog Scraper     → node scraper/scrapeOldBlogs.js
+3️⃣ AI Pipeline      → node index.js
+4️⃣ Frontend UI      → npm run dev
+📸 Frontend Output (Application Result)
+Below are screenshots of the working frontend UI showing successfully rendered articles.
 
-🧠 Data Flow
+🖼 Articles List – Original Articles
 
-Frontend sends request via Axios
+Explanation:
 
-Axios uses VITE_API_URL as base URL
+Articles scraped from BeyondChats are displayed as cards
 
-Backend responds with article data
+Each card shows title, preview content, and article type
 
-React renders data as cards
+The ORIGINAL badge confirms raw scraped content
 
-📝 Notes & Considerations
+Validates Phase 1 backend and database integration
 
-Phase 1 backend must be running before frontend
+🖼 Multiple Articles Rendered
 
-Axios base URL is environment-based
+Explanation:
 
-UI safely handles empty or invalid API responses
+Confirms multiple articles are stored and retrieved
 
-Articles are rendered only when data is available
+Data is fetched via /api/articles
 
-✅ Phase 3 Status
+React frontend renders content correctly
 
-✔ Frontend server running
-✔ Backend communication successful
-✔ Articles rendered correctly
-✔ No runtime errors
+Demonstrates full backend–frontend connectivity
+
+🌐 Live Frontend Application
+🔗 Live URL:
+
+Deployment-ready. Currently running locally.
+
+Local access:
+
+arduino
+Copy code
+http://localhost:5173
+The frontend allows viewing:
+
+Original articles
+
+Updated articles (after AI pipeline execution)
+
+🚀 Deployment Guide (Optional)
+🌍 Frontend Deployment (Vercel / Netlify)
+Vercel
+
+Import GitHub repository
+
+Select frontend-react as root
+
+Add environment variable:
+
+env
+Copy code
+VITE_API_URL=https://your-backend-url
+Deploy
+
+Netlify
+
+Build command: npm run build
+
+Publish directory: dist
+
+Add same environment variable
+
+🛠 Backend Deployment (Optional)
+Backend can be deployed using:
+
+Render
+
+Railway
+
+Cyclic
+
+Set environment variables:
+
+env
+Copy code
+PORT=5000
+MONGO_URI=your_mongodb_atlas_uri
+🧾 Final Submission Summary
+This project demonstrates:
+
+Full-stack development expertise
+
+Clean REST API design
+
+Web scraping and data normalization
+
+AI pipeline orchestration (real or mock)
+
+Robust frontend-backend integration
+
+Clear documentation and architecture
+
+The application is fully functional end-to-end and adheres to clean engineering and documentation standards.
+
+👨‍💻 Author
+Waquar Ali
+🎓 CMR Institute of Technology, Hyderabad
+🔗 GitHub: https://github.com/waquaralipatel
+
+yaml
+Copy code
