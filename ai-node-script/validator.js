@@ -7,7 +7,7 @@ module.exports = function validateEnv() {
 
   required.forEach(key => {
     if (!process.env[key]) {
-      throw new Error(`❌ Missing environment variable: ${key}`);
+      throw new Error(`Missing environment variable: ${key}`);
     }
   });
 };
