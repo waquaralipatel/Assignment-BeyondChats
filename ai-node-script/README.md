@@ -15,25 +15,25 @@ Phase 1 **must be running** before executing Phase 2.
 ---
 
 ## 🧠 Phase 2 Architecture
-
+```
 Backend API (Phase 1)
-│
-▼
+        │
+        ▼
 Fetch Latest Article
-│
-▼
+        │
+        ▼
 Competitor Analysis
 (Search + Scrape)
-│
-▼
+        │
+        ▼
 AI Rewrite Engine
 (OpenAI / Mock AI)
-│
-▼
+        │
+        ▼
 Update Backend
 (/api/articles)
 
-
+```
 ---
 
 ## 🎯 Responsibilities
