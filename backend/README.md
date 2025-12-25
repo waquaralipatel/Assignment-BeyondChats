@@ -48,28 +48,6 @@ Express Backend API
 
 ---
 
-## 📁 Folder Structure
-
-backend/
-├── src/
-│ ├── app.js # Application entry point
-│ ├── config/
-│ │ └── db.js # MongoDB connection
-│ ├── models/
-│ │ └── Article.js # Article schema
-│ ├── routes/
-│ │ └── articles.js # API routes
-│ ├── controllers/
-│ │ └── articleController.js
-│ └── scraper/
-│ └── scrapeOldBlogs.js # Blog scraping script
-├── .env.example
-├── package.json
-└── README.md
-
-
----
-
 ## ⚙️ Environment Setup
 
 ### Create the environment file
