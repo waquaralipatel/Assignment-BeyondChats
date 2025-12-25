@@ -113,7 +113,7 @@ cp .env.example .env
 npm install
 npm run dev
 
-**Open in browser:**
+Open in browser:
 http://localhost:5173  
 
 ```
@@ -127,7 +127,7 @@ http://localhost:5173
 4️⃣ Frontend UI      → npm run dev
 
 ---
-##📸 Frontend Output (Application Result)
+# 📸 Frontend Output (Application Result)
 ![Original Articles View](screenshots/articles-list-1.png)
 
 ![Multiple Articles View](screenshots/articles-list-2.png)
@@ -135,7 +135,7 @@ http://localhost:5173
 ---
 
 
-##🖼 Articles List – Original Articles
+## Articles List – Original Articles
 
 Explanation:
 
@@ -149,7 +149,7 @@ Validates Phase 1 backend and MongoDB integration
 
 ---
 
-##🖼 Multiple Articles Rendered
+## Multiple Articles Rendered
 
 Explanation:
 
@@ -163,7 +163,7 @@ Demonstrates complete backend–frontend connectivity
 
 ---
 
-##🌐 Live Frontend Application
+## 🌐 Live Frontend Application
 
 🔗 Live URL: Currently not deplyed,clone and follow the running steps of apliction
 
@@ -199,9 +199,12 @@ Clear documentation and architecture
 The application is fully functional end-to-end and meets all assessment requirements.
 
 ---
-
+```
 ## 👨‍💻 Author
 
 Waquar Ali
 🎓 CMR Institute of Technology, Hyderabad
 🔗 GitHub: https://github.com/waquaralipatel
+
+Assignment-Appliction 🔗 GitHub:
+https://github.com/waquaralipatel/Assignment-BeyondChats
