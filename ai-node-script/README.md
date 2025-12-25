@@ -54,22 +54,6 @@ Update Backend
 
 ---
 
-## 📁 Folder Structure
-
-
-
-ai-node-script/
-├── index.js # Pipeline entry point
-├── llm.js # AI rewrite logic (real or mock)
-├── scraper.js # Competitor content scraper
-├── googleSearch.js # Search logic
-├── .env.example
-├── package.json
-└── README.md
-
-
----
-
 ## ⚙️ Environment Setup
 
 ### Create the environment file
