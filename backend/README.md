@@ -10,22 +10,22 @@ This phase acts as the **single source of truth** for the entire application.
 ---
 
 ## 🧠 Phase 1 Architecture
-
+```
 BeyondChats Website (Blogs)
-│
-▼
+        │
+        ▼
 Blog Scraper
 (Axios + Cheerio)
-│
-▼
+        │
+        ▼
 MongoDB Database
 (beyondchats)
-│
-▼
+        │
+        ▼
 Express Backend API
 (/api/articles)
 
-
+```
 ---
 
 ## 🎯 Responsibilities
