@@ -33,8 +33,8 @@ const llm = require("./llm");
       reference_links: links
     });
 
-    console.log("✅ Updated article published successfully");
+    console.log("Updated article published successfully");
   } catch (err) {
-    console.error("❌ Pipeline failed:", err.message);
+    console.error("Pipeline failed:", err.message);
   }
 })();
