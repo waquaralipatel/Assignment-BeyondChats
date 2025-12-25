@@ -9,11 +9,17 @@ export default function Articles() {
   useEffect(() => {
     api.get("/articles")
       .then(res => {
-        setArticles(res.data);
+        const result = Array.isArray(res.data)
+          ? res.data
+          : res.data?.data || [];
+
+        setArticles(result);
         setLoading(false);
       })
       .catch(() => setLoading(false));
   }, []);
+
+
 
   if (loading) {
     return (
@@ -37,7 +43,7 @@ export default function Articles() {
         )}
 
         {articles.map(article => (
-          <ArticleCard key={article.id} article={article} />
+          <ArticleCard key={article._id} article={article} />
         ))}
       </div>
     </div>
