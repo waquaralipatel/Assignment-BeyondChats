@@ -16,43 +16,37 @@ The system performs the following tasks:
 - Enhances articles using an AI pipeline (real or mocked)
 - Displays original and updated articles on a React frontend
 
-The application is designed with a **modular, scalable, and clean architecture**, divided into three connected phases.
+The application follows a **modular, scalable, and clean architecture**, divided into three connected phases.
 
 ---
 
 ## 🧠 Complete Application Architecture (Data Flow)
 
 BeyondChats Blog Pages
-│
-▼
+↓
 Phase 1 – Backend
 (Blog Scraper + REST APIs)
-│
-▼
+↓
 MongoDB Database
 (beyondchats)
-│
-▼
+↓
 Phase 2 – AI Pipeline
 (Content Enhancement)
-│
-▼
+↓
 Phase 3 – Frontend UI
 (React Application)
 
-yaml
-Copy code
 
-This diagram summarizes the **end-to-end data flow** from scraping to UI rendering.
+This diagram provides a quick overview of the **end-to-end data flow** from scraping to UI rendering.
 
 ---
 
 ## 🧩 Phase Breakdown
 
 ### 🟥 Phase 1 – Backend (API + Scraper)
-- Scrapes BeyondChats blog articles using Axios & Cheerio
+- Scrapes BeyondChats blog articles using Axios and Cheerio
 - Stores data in MongoDB
-- Exposes REST APIs (`/api/articles`) for other phases
+- Exposes REST APIs (`/api/articles`)
 
 **Tech Stack:** Node.js, Express.js, MongoDB, Mongoose, Axios, Cheerio
 
@@ -78,62 +72,68 @@ This diagram summarizes the **end-to-end data flow** from scraping to UI renderi
 
 ## ⚙️ Local Setup Instructions
 
-### 🔹 Prerequisites
+### Prerequisites
 - Node.js (v18 or later)
-- MongoDB (local instance or MongoDB Compass)
+- MongoDB (local or MongoDB Compass)
 - Git
 
 ---
 
-### 🔹 Step 1: Clone the Repository
+### Step 1: Clone the Repository
 ```bash
 git clone https://github.com/waquaralipatel/Assignment-BeyondChats.git
 cd Assignment-BeyondChats
-🔹 Step 2: Phase 1 – Backend Setup
-bash
-Copy code
+
+
+##Step 2: Phase 1 – Backend Setup
+
 cd backend-laravel
 cp .env.example .env
 npm install
 cd src
 node app.js
-Run scraper (one-time):
 
-bash
-Copy code
+##Run scraper (one-time):
+
 node scraper/scrapeOldBlogs.js
-🔹 Step 3: Phase 2 – AI Pipeline Setup
-bash
-Copy code
+
+##nStep 3: Phase 2 – AI Pipeline Setup
+
 cd ai-node-script
 cp .env.example .env
 npm install
 node index.js
-Note: If OpenAI quota is unavailable, AI rewriting is safely mocked.
 
-🔹 Step 4: Phase 3 – Frontend Setup
-bash
-Copy code
+If OpenAI quota is unavailable, AI rewriting is safely mocked.
+
+##Step 4: Phase 3 – Frontend Setup
+
 cd frontend-react
 cp .env.example .env
 npm install
 npm run dev
-Open in browser:
 
-arduino
-Copy code
+##Open in browser:
 http://localhost:5173
-🔁 Correct Execution Order
-arduino
-Copy code
+
+---
+## 🔁 Correct Execution Order
+
 1️⃣ Backend Server   → node app.js
 2️⃣ Blog Scraper     → node scraper/scrapeOldBlogs.js
 3️⃣ AI Pipeline      → node index.js
 4️⃣ Frontend UI      → npm run dev
-📸 Frontend Output (Application Result)
-Below are screenshots of the working frontend UI showing successfully rendered articles.
 
-🖼 Articles List – Original Articles
+---
+##📸 Frontend Output (Application Result)
+![Original Articles View](screenshots/articles-list-1.png)
+
+![Multiple Articles View](screenshots/articles-list-2.png)
+
+---
+
+
+##🖼 Articles List – Original Articles
 
 Explanation:
 
@@ -143,75 +143,43 @@ Each card shows title, preview content, and article type
 
 The ORIGINAL badge confirms raw scraped content
 
-Validates Phase 1 backend and database integration
+Validates Phase 1 backend and MongoDB integration
 
-🖼 Multiple Articles Rendered
+---
+
+##🖼 Multiple Articles Rendered
 
 Explanation:
 
 Confirms multiple articles are stored and retrieved
 
-Data is fetched via /api/articles
+Data is fetched using /api/articles
 
 React frontend renders content correctly
 
-Demonstrates full backend–frontend connectivity
+Demonstrates complete backend–frontend connectivity
 
-🌐 Live Frontend Application
-🔗 Live URL:
+---
 
-Deployment-ready. Currently running locally.
+##🌐 Live Frontend Application
 
-Local access:
+🔗 Live URL: Currently not deplyed,clone and follow the running steps of apliction
 
-arduino
-Copy code
+Deployment-ready. it's runs locally.
+
 http://localhost:5173
+
+
 The frontend allows viewing:
 
 Original articles
 
 Updated articles (after AI pipeline execution)
 
-🚀 Deployment Guide (Optional)
-🌍 Frontend Deployment (Vercel / Netlify)
-Vercel
+---
 
-Import GitHub repository
+## Final Submission Summary
 
-Select frontend-react as root
-
-Add environment variable:
-
-env
-Copy code
-VITE_API_URL=https://your-backend-url
-Deploy
-
-Netlify
-
-Build command: npm run build
-
-Publish directory: dist
-
-Add same environment variable
-
-🛠 Backend Deployment (Optional)
-Backend can be deployed using:
-
-Render
-
-Railway
-
-Cyclic
-
-Set environment variables:
-
-env
-Copy code
-PORT=5000
-MONGO_URI=your_mongodb_atlas_uri
-🧾 Final Submission Summary
 This project demonstrates:
 
 Full-stack development expertise
@@ -220,18 +188,18 @@ Clean REST API design
 
 Web scraping and data normalization
 
-AI pipeline orchestration (real or mock)
+AI pipeline orchestration (real or mocked)
 
-Robust frontend-backend integration
+Robust frontend–backend integration
 
 Clear documentation and architecture
 
-The application is fully functional end-to-end and adheres to clean engineering and documentation standards.
+The application is fully functional end-to-end and meets all assessment requirements.
 
-👨‍💻 Author
+---
+
+## 👨‍💻 Author
+
 Waquar Ali
 🎓 CMR Institute of Technology, Hyderabad
 🔗 GitHub: https://github.com/waquaralipatel
-
-yaml
-Copy code
