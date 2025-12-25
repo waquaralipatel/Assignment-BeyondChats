@@ -21,22 +21,23 @@ The application follows a **modular, scalable, and clean architecture**, divided
 ---
 
 ## 🧠 Complete Application Architecture (Data Flow)
+```
 
 BeyondChats Blog Pages
-↓
+       ↓
 Phase 1 – Backend
 (Blog Scraper + REST APIs)
-↓
+       ↓
 MongoDB Database
 (beyondchats)
-↓
+      ↓
 Phase 2 – AI Pipeline
 (Content Enhancement)
-↓
+      ↓
 Phase 3 – Frontend UI
 (React Application)
 
-
+```
 This diagram provides a quick overview of the **end-to-end data flow** from scraping to UI rendering.
 
 ---
