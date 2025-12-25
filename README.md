@@ -200,7 +200,6 @@ Clear documentation and architecture
 The application is fully functional end-to-end and meets all assessment requirements.
 
 ---
-```
 ## 👨‍💻 Author
 
 Waquar Ali
