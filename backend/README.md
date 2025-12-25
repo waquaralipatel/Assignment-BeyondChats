@@ -1,106 +1,151 @@
-BeyondChats Assignment – Full-Stack Application
+# 🟥 Phase 1 – Backend (API + Scraper)
 
-🔗 GitHub Repository
- https://github.com/waquaralipatel/Assignment-BeyondChats
+## 📌 Overview
 
-Project Overview
+Phase 1 is the **core backend layer** of the BeyondChats assignment.  
+It is responsible for scraping blog articles, storing them in MongoDB, and exposing REST APIs for other phases.
 
-This project is a phase-wise full-stack application built as part of the BeyondChats assessment.
+This phase acts as the **single source of truth** for the entire application.
 
-The system:
+---
 
-Scrapes BeyondChats blog articles
+## 🧠 Phase 1 Architecture
 
-Stores them in MongoDB
+┌──────────────────────┐
+│ BeyondChats Website │
+│ (Blogs Pages) │
+└──────────┬───────────┘
+│ Scraping
+▼
+┌──────────────────────┐
+│ Blog Scraper │
+│ (Axios + Cheerio) │
+└──────────┬───────────┘
+│ Store Data
+▼
+┌──────────────────────┐
+│ MongoDB Database │
+│ (beyondchats) │
+└──────────┬───────────┘
+│ REST APIs
+▼
+┌──────────────────────┐
+│ Express Backend API │
+│ (/api/articles) │
+└──────────────────────┘
 
-Enhances articles using an AI pipeline (mocked or real)
 
-Displays original and updated articles on a React frontend
+---
 
-The application is divided into three independent but connected phases.
+## 🎯 Responsibilities
 
-Overall Architecture
+- Scrape BeyondChats blog articles
+- Store articles in MongoDB
+- Provide REST APIs for frontend & AI pipeline
+- Manage database connection and persistence
 
-┌──────────────┐
-│  Phase 1     │
-│  Backend API │
-│  (Node + DB) │
-└──────┬───────┘
-       │ REST APIs
-       ▼
-┌──────────────┐
-│  Phase 2     │
-│  AI Pipeline │
-│  (Node + AI) │
-└──────┬───────┘
-       │ Updated Articles
-       ▼
-┌──────────────┐
-│  Phase 3     │
-│  Frontend UI │
-│  (React)     │
-└──────────────┘
-🟥 PHASE 1 – Backend (API + Scraper)
-📌 Purpose
+---
 
-Scrape BeyondChats blog articles
+## 🛠 Tech Stack
 
-Store articles in MongoDB
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Axios
+- Cheerio
 
-Expose REST APIs for frontend & AI pipeline
+---
 
-🛠 Tech Stack
+## 📁 Folder Structure
 
-Node.js
-
-Express.js
-
-MongoDB + Mongoose
-
-Axios
-
-Cheerio
-
-📁 Folder Structure (Phase 1)
-backend-laravel/
+backend/
 ├── src/
-│   ├── app.js
-│   ├── config/
-│   │   └── db.js
-│   ├── models/
-│   │   └── Article.js
-│   ├── routes/
-│   │   └── articles.js
-│   ├── controllers/
-│   │   └── articleController.js
-│   └── scraper/
-│       └── scrapeOldBlogs.js
+│ ├── app.js # Application entry point
+│ ├── config/
+│ │ └── db.js # MongoDB connection
+│ ├── models/
+│ │ └── Article.js # Article schema
+│ ├── routes/
+│ │ └── articles.js # API routes
+│ ├── controllers/
+│ │ └── articleController.js
+│ └── scraper/
+│ └── scrapeOldBlogs.js # Blog scraping script
 ├── .env.example
 ├── package.json
 └── README.md
 
-▶️ Phase 1 Execution Steps
+
+---
+
+## ⚙️ Environment Setup
+
+### Create the environment file
+```bash
+cp .env.example .env
+
+## Update .env with the following values
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/beyondchats
+
+Execution Steps
+1️⃣ Install Dependencies
 cd backend-laravel
 npm install
+
+2️⃣ Start Backend Server
 cd src
 node app.js
 
+✅ Expected Output
+🚀 Server running on port 5000
+✅ MongoDB connected
 
- Expected Output:
+3️⃣ Run Blog Scraper (One-Time Setup)
 
- Server running on port 5000
- MongoDB connected
+The scraper fetches the oldest BeyondChats blog articles and stores them in MongoDB.
 
-Run Scraper (one-time)
 node scraper/scrapeOldBlogs.js
 
+✅ Expected Output
+✅ 5 oldest blogs scraped successfully
 
-Output:
+🔗 API Endpoints
+Method	Endpoint	Description
+GET	/api/articles	Fetch all stored articles
+GET	/api/articles/latest	Fetch the latest article
+🧠 Data Model (Article)
 
-5 oldest blogs scraped successfully
+Each article stored in MongoDB contains:
 
-🔗 Important API Endpoints
+title
 
-GET /api/articles → Fetch all articles
+slug
 
-GET /api/articles/latest → Fetch latest article
+content
+
+article_type (original / updated)
+
+createdAt
+
+updatedAt
+
+📝 Notes & Considerations
+
+Backend must be running before Phase 2 or Phase 3
+
+Scraper converts relative URLs into absolute URLs
+
+Database and collections are auto-created by MongoDB
+
+APIs are designed to be consumed by multiple clients
+
+Scraping is intended to be executed once during setup
+
+✅ Phase 1 Status
+
+✔ Backend server running
+✔ MongoDB connected
+✔ Articles scraped and stored
+✔ APIs exposed and tested
