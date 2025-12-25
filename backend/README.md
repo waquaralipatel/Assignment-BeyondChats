@@ -18,3 +18,5 @@ Enhances articles using an AI pipeline (mocked or real)
 Displays original and updated articles on a React frontend
 
 The application is divided into three independent but connected phases.
+
+Overall Architecture
