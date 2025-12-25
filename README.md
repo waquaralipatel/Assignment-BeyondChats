@@ -83,7 +83,7 @@ This diagram provides a quick overview of the **end-to-end data flow** from scra
 ```bash
 git clone https://github.com/waquaralipatel/Assignment-BeyondChats.git
 cd Assignment-BeyondChats
-
+```
 
 ##Step 2: Phase 1 – Backend Setup
 
